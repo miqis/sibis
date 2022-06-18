@@ -33,8 +33,9 @@ eclipse:
 	mvn eclipse:eclipse
 
 push :	
-	git commit -a 
+	git commit -a
 	git push
-	
+
+
 pull : 
 	git pull
