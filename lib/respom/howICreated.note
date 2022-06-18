@@ -1,0 +1,77 @@
+==================================================================
+-----------------------------= ubah  parent dari maven  menjadi static  =--------------------------------- 
+1. copy parent pom dari /home/user/.m2/... ke folder respom 
+2. ubah nama parent.pom tambahkan prefix "miq-"
+3. edit parent.pom {
+    <groupId>org.apache.isis.app</groupId>
+	<artifactId>miq-isis-app-starter-parent</artifactId>
+	<version>2.0.0-M7</version>
+	<packaging>pom</packaging>
+}
+4. buat file : "makefile" {
+ all:  install
+ install:
+	mvn install:install-file     -Dpackaging=pom     -Dfile=miq-isis-app-starter-parent.pom     -DpomFile=miq-isis-app-starter-parent.pom
+}
+5. install miq...pom
+   $> make all
+6. edit pom.xls di root manjadi {
+  <!-- rubah ini apabila parent berubah -->
+	<parent>
+		<groupId>org.apache.isis.app</groupId>
+		<artifactId>miq-isis-app-starter-parent</artifactId>
+		<version>2.0.0-M7</version>
+	</parent>
+	
+
+}
+7. test 
+make purge.net
+make all.net
+make
+
+
+
+
+
+
+
+
+-----------------------------= =--------------------------------- 
+// [error = system akan mendownload library versi project mis  0.2]
+    1. bentrok versi incode-platform.version, di  project.parent.version dari child pom adalah main
+       hapus	"<incode-platform.version>${project.parent.version}</incode-platform.version> "
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------= =--------------------------------- 
+
+
+
+
+
+-----------------------------= =--------------------------------- 
+
+
+
+
+-----------------------------= =--------------------------------- 
+
+
+
+-----------------------------= =--------------------------------- 
+
+
+
+-----------------------------= =--------------------------------- 
+
+
+

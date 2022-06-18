@@ -1,0 +1,20 @@
+ 
+ 
+ 
+ 
+ 
+ 
+------------------------------= module yang berubah =---------------------------------
+  webapp/src/main/java/domainapp/webapp/application/ApplicationModule.java
+  
+  
+  src/test/resources/application-test.yml
+
+
+-----------------------= note  =-------------------
+git commit -a -m "initial commit"
+git push
+git pull
+
+sudo apt-get install meld
+
