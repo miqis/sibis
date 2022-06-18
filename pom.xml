@@ -27,7 +27,7 @@
     <dependencyManagement>
         <dependencies>
 
-            <!-- this project's own modules -->
+            <!-- template 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jpa-module-simple</artifactId>
@@ -40,6 +40,18 @@
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>
+             -->
+            
+                <!-- this project's own modules -->
+
+            
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sibus-jpa-module-inventory</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>miq.system-webapp</artifactId>
@@ -65,8 +77,15 @@
     </dependencies>
 
     <modules>
+<!-- template -
         <module>module-simple</module>
         <module>module-simple-tests</module>
+        -->
+        
+        
+                <module>module-inventory</module>
+
+        
         <module>webapp</module>
         <module>webapp-tests</module>
     </modules>

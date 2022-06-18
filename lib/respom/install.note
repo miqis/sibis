@@ -3,9 +3,8 @@ $ make all
 
 
 -----------------------------= bikin projek baru di github =--------------------------------- 
-git clone https://github.com/userName/Repo New_Repo
-cd New_Repo
-git remote set-url origin https://github.com/userName/New_Repo
-git remote add upstream https://github.com/userName/Repo
-git push origin master
-git push --all
+buat New_Repo di github
+$ git clone https://github.com/userName/Repo New_Repo
+copy incode ke New_Repo
+$ git add .
+$ make push
