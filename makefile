@@ -34,7 +34,7 @@ eclipse:
 
 push :	
 	git commit -a
-	git push 2> errors.txt
+	git push 2> /dev/null
 
 
 pull : 
