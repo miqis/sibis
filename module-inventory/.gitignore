@@ -6,3 +6,5 @@ gradle/wrapper
 /.apt_generated/
 /.factorypath
 /.apt_generated_tests/
+/target/
+/bin/

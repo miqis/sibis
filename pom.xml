@@ -44,6 +44,12 @@
             
                 <!-- this project's own modules -->
 
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jpa-module-simple</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+     
             
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -82,7 +88,8 @@
         <module>module-simple-tests</module>
         -->
         
-        
+                <module>module-simple</module>
+
                 <module>module-inventory</module>
 
         
