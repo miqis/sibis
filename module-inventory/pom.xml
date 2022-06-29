@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>org.apache.isis.starters</groupId>
-        <artifactId>simpleapp-jpa</artifactId>
+        <artifactId>sibus-jpa</artifactId>
         <version>2.0.0-M7</version>
     </parent>
 
     <artifactId>sibus-jpa-module-inventory</artifactId>
-    <name>SimpleApp (JPA) - Simple Module</name>
+    <name>sibus (JPA) - Module Inventory </name>
 
     <build>
         <resources>

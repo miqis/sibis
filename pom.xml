@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>org.apache.isis.starters</groupId>
-    <artifactId>simpleapp-jpa</artifactId>
+    <artifactId>sibus-jpa</artifactId>
     <version>2.0.0-M7</version>
 
     <name>SimpleApp (JPA) - Parent</name>
@@ -83,14 +83,14 @@
     </dependencies>
 
     <modules>
-<!-- template -
+<!--  penentuan nbama folder module
+		template -
         <module>module-simple</module>
         <module>module-simple-tests</module>
         -->
         
-                <module>module-simple</module>
-
-                <module>module-inventory</module>
+        <module>module-simple</module>
+        <module>module-inventory</module>
 
         
         <module>webapp</module>

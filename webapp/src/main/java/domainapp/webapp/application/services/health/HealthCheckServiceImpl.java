@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service;
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
 
-import domainapp.modules.simple.dom.so.SimpleObjects;
+import domainapp.modules.simple.dom.so.MenuPembelian;
 
 @Service
 @Named("domainapp.HealthCheckServiceImpl")
 public class HealthCheckServiceImpl implements HealthCheckService {
 
-    private final SimpleObjects simpleObjects;
+    private final MenuPembelian simpleObjects;
 
     @Inject
-    public HealthCheckServiceImpl(SimpleObjects simpleObjects) {
+    public HealthCheckServiceImpl(MenuPembelian simpleObjects) {
         this.simpleObjects = simpleObjects;
     }
 

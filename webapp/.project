@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-  <name>miq.system-webapp</name>
-  <comment>Assembles and runs both the Wicket viewer and the Restfulobjects viewer
+	<name>miq.system-webapp</name>
+	<comment>Assembles and runs both the Wicket viewer and the Restfulobjects viewer
     	in a single webapp configured to run using the JPA/EclipseLink object store. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects>
-    <project>simpleapp-jpa-module-simple</project>
-  </projects>
-  <buildSpec>
-    <buildCommand>
-      <name>org.eclipse.jdt.core.javabuilder</name>
-    </buildCommand>
-  </buildSpec>
-  <natures>
-    <nature>org.eclipse.jdt.core.javanature</nature>
-  </natures>
+	<projects>
+		<project>module-inventory</project>
+		<project>simpleapp-jpa-module-simple</project>
+		<project>simpleapp-jpa-module-simple-tests</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
 </projectDescription>

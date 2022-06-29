@@ -36,28 +36,28 @@ import domainapp.modules.simple.types.Notes;
 
 @javax.persistence.Entity
 @javax.persistence.Table(
-    schema="simple",
+    schema="inventaris",
     uniqueConstraints = {
-        @javax.persistence.UniqueConstraint(name = "SimpleObject__name__UNQ", columnNames = {"NAME"})
+        @javax.persistence.UniqueConstraint(name = "pembelian__name__UNQ", columnNames = {"NAME"})
     }
 )
 @javax.persistence.NamedQueries({
         @javax.persistence.NamedQuery(
-                name = SimpleObject.NAMED_QUERY__FIND_BY_NAME_LIKE,
+                name = Pembelian.NAMED_QUERY__FIND_BY_NAME_LIKE,
                 query = "SELECT so " +
-                        "FROM SimpleObject so " +
+                        "FROM Pembelian so " +
                         "WHERE so.name LIKE :name"
         )
 })
 @javax.persistence.EntityListeners(IsisEntityListener.class)
-@DomainObject(logicalTypeName = "simple.SimpleObject", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "inventory.pembelian", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class SimpleObject implements Comparable<SimpleObject> {
+public class Pembelian implements Comparable<Pembelian> {
 
-    static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "SimpleObject.findByNameLike";
+    static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Pembelian.findByNameLike";
 
     @javax.persistence.Id
     @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
@@ -70,8 +70,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @Getter @Setter
     private long version;
 
-    public static SimpleObject withName(String name) {
-        val simpleObject = new SimpleObject();
+    public static Pembelian withName(String name) {
+        val simpleObject = new Pembelian();
         simpleObject.setName(name);
         return simpleObject;
     }
@@ -99,7 +99,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "name", promptStyle = PromptStyle.INLINE)
-    public SimpleObject updateName(
+    public Pembelian updateName(
             @Name final String name) {
         setName(name);
         return this;
@@ -129,11 +129,11 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
 
 
-    private final static Comparator<SimpleObject> comparator =
-            Comparator.comparing(SimpleObject::getName);
+    private final static Comparator<Pembelian> comparator =
+            Comparator.comparing(Pembelian::getName);
 
     @Override
-    public int compareTo(final SimpleObject other) {
+    public int compareTo(final Pembelian other) {
         return comparator.compare(this, other);
     }
 

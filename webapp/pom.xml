@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>org.apache.isis.starters</groupId>
-        <artifactId>simpleapp-jpa</artifactId>
+        <artifactId>sibus-jpa</artifactId>
         <version>2.0.0-M7</version>
     </parent>
 
@@ -55,11 +55,18 @@
     </build>
 
     <dependencies>
+        <!-- miq module -->
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>sibus-jpa-module-inventory</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>simpleapp-jpa-module-simple</artifactId>
         </dependency>
+
 
         <!-- isis -->
         <dependency>

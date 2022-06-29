@@ -5,13 +5,13 @@ import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
-import domainapp.modules.simple.dom.so.SimpleObject;
-import domainapp.modules.simple.dom.so.SimpleObjects;
+import domainapp.modules.simple.dom.so.Pembelian;
+import domainapp.modules.simple.dom.so.MenuPembelian;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum SimpleObject_persona
-implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<SimpleObject> {
+implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Pembelian> {
 
     FOO("Foo"),
     BAR("Bar"),
@@ -32,13 +32,13 @@ implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Simp
     }
 
     @Override
-    public SimpleObject findUsing(final ServiceRegistry serviceRegistry) {
-        SimpleObjects simpleObjects = serviceRegistry.lookupService(SimpleObjects.class).orElse(null);
+    public Pembelian findUsing(final ServiceRegistry serviceRegistry) {
+        MenuPembelian simpleObjects = serviceRegistry.lookupService(MenuPembelian.class).orElse(null);
         return simpleObjects.findByNameExact(name);
     }
 
     public static class PersistAll
-    extends PersonaEnumPersistAll<SimpleObject_persona, SimpleObject> {
+    extends PersonaEnumPersistAll<SimpleObject_persona, Pembelian> {
 
         public PersistAll() {
             super(SimpleObject_persona.class);

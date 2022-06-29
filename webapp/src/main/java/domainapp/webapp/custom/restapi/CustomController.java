@@ -17,8 +17,8 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 
 import lombok.RequiredArgsConstructor;
 
-import domainapp.modules.simple.dom.so.SimpleObject;
-import domainapp.modules.simple.dom.so.SimpleObjects;
+import domainapp.modules.simple.dom.so.Pembelian;
+import domainapp.modules.simple.dom.so.MenuPembelian;
 
 @RestController
 @RequiredArgsConstructor(onConstructor_ = {@Inject})
@@ -26,12 +26,12 @@ class CustomController {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-    private final SimpleObjects simpleObjects;
+    private final MenuPembelian simpleObjects;
 
     @GetMapping("/custom/simpleObjects")
-    List<SimpleObject> all() {
+    List<Pembelian> all() {
         return call("sven", simpleObjects::listAll)
-                .orElse(Collections.<SimpleObject>emptyList());
+                .orElse(Collections.<Pembelian>emptyList());
     }
 
     private <T> Optional<T> call(
