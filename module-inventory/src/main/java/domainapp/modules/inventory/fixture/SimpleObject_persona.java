@@ -1,12 +1,12 @@
-package domainapp.modules.simple.fixture;
+package domainapp.modules.inventory.fixture;
 
 import org.apache.isis.applib.services.registry.ServiceRegistry;
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript;
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
-import domainapp.modules.simple.dom.so.Pembelian;
-import domainapp.modules.simple.dom.so.MenuPembelian;
+import domainapp.modules.inventory.dom.so.MenuPembelian;
+import domainapp.modules.inventory.dom.so.Pembelian;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

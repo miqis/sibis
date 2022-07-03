@@ -5,10 +5,10 @@ import javax.inject.Named;
 
 import org.springframework.stereotype.Service;
 
+import domainapp.modules.inventory.dom.so.MenuPembelian;
+
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
-
-import domainapp.modules.simple.dom.so.MenuPembelian;
 
 @Service
 @Named("domainapp.HealthCheckServiceImpl")

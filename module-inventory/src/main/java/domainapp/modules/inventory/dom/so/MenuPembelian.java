@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.so;
+package domainapp.modules.inventory.dom.so;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
-import domainapp.modules.simple.types.Name;
+import domainapp.modules.inventory.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,

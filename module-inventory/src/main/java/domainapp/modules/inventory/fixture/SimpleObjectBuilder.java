@@ -1,11 +1,11 @@
-package domainapp.modules.simple.fixture;
+package domainapp.modules.inventory.fixture;
 
 import javax.inject.Inject;
 
 import org.apache.isis.testing.fixtures.applib.personas.BuilderScriptWithResult;
 
-import domainapp.modules.simple.dom.so.Pembelian;
-import domainapp.modules.simple.dom.so.MenuPembelian;
+import domainapp.modules.inventory.dom.so.MenuPembelian;
+import domainapp.modules.inventory.dom.so.Pembelian;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;

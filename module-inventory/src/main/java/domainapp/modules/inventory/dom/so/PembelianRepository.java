@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.so;
+package domainapp.modules.inventory.dom.so;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.so;
+package domainapp.modules.inventory.dom.so;
 
 import java.util.Comparator;
 
@@ -20,6 +20,9 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 
+import domainapp.modules.inventory.types.Name;
+import domainapp.modules.inventory.types.Notes;
+
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
@@ -29,9 +32,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
-
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 
 
 @javax.persistence.Entity
