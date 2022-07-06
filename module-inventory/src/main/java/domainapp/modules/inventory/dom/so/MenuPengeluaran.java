@@ -24,59 +24,59 @@ import domainapp.modules.inventory.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        logicalTypeName = "sibis.MenuPembelian"
+        logicalTypeName = "sibis.MenuPengeluaran"
         
 )
 @DomainServiceLayout( 
 		menuBar = MenuBar.PRIMARY,
-		named = "Pembelian"
+		named  = "Pengeluaran"
 		)
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
-public class MenuPembelian {
+public class MenuPengeluaran {
 
     final RepositoryService repositoryService;
     final JpaSupportService jpaSupportService;
-    final PembelianRepository simpleObjectRepository;
+    final PengeluaranRepository simpleObjectRepository;
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
-    public Pembelian create(
+    public Pengeluaran create(
             @Name final String name) {
-        return repositoryService.persist(Pembelian.withName(name));
+        return repositoryService.persist(Pengeluaran.withName(name));
     }
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
-    public List<Pembelian> findByNameLike(
+    public List<Pengeluaran> findByNameLike(
             @Name final String name) {
         return repositoryService.allMatches(
-                Query.named(Pembelian.class, Pembelian.NAMED_QUERY__FIND_BY_NAME_LIKE)
-                     .withParameter("name", "%" + name + "%"));
+                Query.named(Pengeluaran.class, Pengeluaran.NAMED_QUERY__FIND_BY_NAME_LIKE)
+                     .withParameter("noNota", "%" + name + "%"));
     }
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, promptStyle = PromptStyle.DIALOG_SIDEBAR)
-    public List<Pembelian> findByName(
+    public List<Pengeluaran> findByNoNota(
             @Name final String name
             ) {
-        return simpleObjectRepository.findByNameContaining(name);
+        return simpleObjectRepository.findByNoNotaContaining(name);
     }
 
 
     @Programmatic
-    public Pembelian findByNameExact(final String name) {
-        return simpleObjectRepository.findByName(name);
+    public Pengeluaran findByNameExact(final String name) {
+        return simpleObjectRepository.findByNoNota(name);
     }
 
 
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<Pembelian> listAll() {
+    public List<Pengeluaran> listAll() {
         return simpleObjectRepository.findAll();
     }
 
@@ -85,11 +85,11 @@ public class MenuPembelian {
 
     @Programmatic
     public void ping() {
-        jpaSupportService.getEntityManager(Pembelian.class)
+        jpaSupportService.getEntityManager(Pengeluaran.class)
             .ifSuccess(entityManager -> {
-                final TypedQuery<Pembelian> q = entityManager.createQuery(
-                        "SELECT p FROM SimpleObject p ORDER BY p.name",
-                        Pembelian.class)
+                final TypedQuery<Pengeluaran> q = entityManager.createQuery(
+                        "SELECT p FROM SimpleObject p ORDER BY p.noNota",
+                        Pengeluaran.class)
                     .setMaxResults(1);
                 q.getResultList();
             });

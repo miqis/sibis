@@ -10,8 +10,8 @@ import javax.inject.Inject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import domainapp.modules.inventory.dom.so.MenuPembelian;
-import domainapp.modules.inventory.dom.so.Pembelian;
+import domainapp.modules.inventory.dom.so.MenuPengeluaran;
+import domainapp.modules.inventory.dom.so.Pengeluaran;
 
 import org.apache.isis.applib.services.iactnlayer.InteractionContext;
 import org.apache.isis.applib.services.iactnlayer.InteractionService;
@@ -26,12 +26,12 @@ class CustomController {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-    private final MenuPembelian simpleObjects;
+    private final MenuPengeluaran simpleObjects;
 
     @GetMapping("/custom/simpleObjects")
-    List<Pembelian> all() {
+    List<Pengeluaran> all() {
         return call("sven", simpleObjects::listAll)
-                .orElse(Collections.<Pembelian>emptyList());
+                .orElse(Collections.<Pengeluaran>emptyList());
     }
 
     private <T> Optional<T> call(

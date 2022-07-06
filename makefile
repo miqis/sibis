@@ -32,10 +32,14 @@ purge.net:
 eclipse:
 	mvn eclipse:eclipse
 
-push :	
+git.push : clean
 	git commit -a
 	git push 2> /dev/null
 
 
-pull : 
+git.pull : 
 	git pull
+
+git.add : clean
+	git add .
+

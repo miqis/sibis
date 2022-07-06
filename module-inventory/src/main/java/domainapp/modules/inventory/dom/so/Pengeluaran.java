@@ -34,6 +34,7 @@ import lombok.ToString;
 import lombok.val;
 
 
+// Pengeluaran =) suplier, nota, ^pengeluaranTotal
 @javax.persistence.Entity
 @javax.persistence.Table(
     schema="inventaris",
@@ -43,10 +44,10 @@ import lombok.val;
 )
 @javax.persistence.NamedQueries({
         @javax.persistence.NamedQuery(
-                name = Pembelian.NAMED_QUERY__FIND_BY_NAME_LIKE,
+                name = Pengeluaran.NAMED_QUERY__FIND_BY_NAME_LIKE,
                 query = "SELECT so " +
-                        "FROM Pembelian so " +
-                        "WHERE so.name LIKE :name"
+                        "FROM Pengeluaran so " +
+                        "WHERE so.noNota LIKE :noMota"
         )
 })
 @javax.persistence.EntityListeners(IsisEntityListener.class)
@@ -55,7 +56,7 @@ import lombok.val;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Pembelian implements Comparable<Pembelian> {
+public class Pengeluaran implements Comparable<Pengeluaran> {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Pembelian.findByNameLike";
 
@@ -70,9 +71,11 @@ public class Pembelian implements Comparable<Pembelian> {
     @Getter @Setter
     private long version;
 
-    public static Pembelian withName(String name) {
-        val simpleObject = new Pembelian();
-        simpleObject.setName(name);
+    
+    // constructor
+    public static Pengeluaran withName(String name) {
+        val simpleObject = new Pengeluaran();
+        simpleObject.setNoNota(name);
         return simpleObject;
     }
 
@@ -87,7 +90,7 @@ public class Pembelian implements Comparable<Pembelian> {
     @javax.persistence.Column(length = Name.MAX_LEN, nullable = false)
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "name", sequence = "1")
-    private String name;
+    private String noNota;
 
     @Notes
     @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
@@ -98,14 +101,14 @@ public class Pembelian implements Comparable<Pembelian> {
 
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @ActionLayout(associateWith = "name", promptStyle = PromptStyle.INLINE)
-    public Pembelian updateName(
+    @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
+    public Pengeluaran updateName(
             @Name final String name) {
-        setName(name);
+        setNoNota(name);
         return this;
     }
     public String default0UpdateName() {
-        return getName();
+        return getNoNota();
     }
     public String validate0UpdateName(String newName) {
         for (char prohibitedCharacter : "&%$!".toCharArray()) {
@@ -129,11 +132,11 @@ public class Pembelian implements Comparable<Pembelian> {
 
 
 
-    private final static Comparator<Pembelian> comparator =
-            Comparator.comparing(Pembelian::getName);
+    private final static Comparator<Pengeluaran> comparator =
+            Comparator.comparing(Pengeluaran::getNoNota);
 
     @Override
-    public int compareTo(final Pembelian other) {
+    public int compareTo(final Pengeluaran other) {
         return comparator.compare(this, other);
     }
 

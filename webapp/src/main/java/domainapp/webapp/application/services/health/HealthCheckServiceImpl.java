@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 import org.springframework.stereotype.Service;
 
-import domainapp.modules.inventory.dom.so.MenuPembelian;
+import domainapp.modules.inventory.dom.so.MenuPengeluaran;
 
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
@@ -14,10 +14,10 @@ import org.apache.isis.applib.services.health.HealthCheckService;
 @Named("domainapp.HealthCheckServiceImpl")
 public class HealthCheckServiceImpl implements HealthCheckService {
 
-    private final MenuPembelian simpleObjects;
+    private final MenuPengeluaran simpleObjects;
 
     @Inject
-    public HealthCheckServiceImpl(MenuPembelian simpleObjects) {
+    public HealthCheckServiceImpl(MenuPengeluaran simpleObjects) {
         this.simpleObjects = simpleObjects;
     }
 
