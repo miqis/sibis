@@ -43,3 +43,6 @@ git.pull :
 git.add : clean
 	git add .
 
+git.undo :
+	git restore .
+
