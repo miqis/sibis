@@ -1,4 +1,7 @@
-package domainapp.modules.inventory.dom.so;
+package domainapp.modules.inventory.dom.suplier;
+
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
 import java.util.Comparator;
 
@@ -23,10 +26,6 @@ import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 import domainapp.modules.inventory.types.Alamat;
 import domainapp.modules.inventory.types.Nama;
 import domainapp.modules.inventory.types.Notes;
-
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
-import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -76,7 +75,7 @@ public class Suplier implements Comparable<Suplier> {
     // constructor
     public static Suplier withName(String name) {
         val simpleObject = new Suplier();
-        simpleObject.setNoNota(name);
+        simpleObject.setNama(name);
         return simpleObject;
     }
 
@@ -112,15 +111,15 @@ public class Suplier implements Comparable<Suplier> {
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
-    public Suplier updateName(
+    public Suplier updateNama(
             @Nama final String name) {
-        setNoNota(name);
+        setNama(name);
         return this;
     }
-    public String default0UpdateName() {
-        return getNoNota();
+    public String default0UpdateNama() {
+        return getNama();
     }
-    public String validate0UpdateName(String newName) {
+    public String validate0UpdateNama(String newName) {
         for (char prohibitedCharacter : "&%$!".toCharArray()) {
             if( newName.contains(""+prohibitedCharacter)) {
                 return "Character '" + prohibitedCharacter + "' is not allowed.";
@@ -143,7 +142,7 @@ public class Suplier implements Comparable<Suplier> {
 
 
     private final static Comparator<Suplier> comparator =
-            Comparator.comparing(Suplier::getNoNota);
+            Comparator.comparing(Suplier::getNama);
 
     @Override
     public int compareTo(final Suplier other) {
