@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
-public interface PengeluaranRepository extends JpaRepository<Pengeluaran, Long> {
+public interface KeluarRepository extends JpaRepository<Keluar, Long> {
 
-    List<Pengeluaran> findByNoNotaContaining(final String noNotaa);
+    List<Keluar> findByNoNotaContaining(final String noNotaa);
 
-    Pengeluaran findByNoNota(final String noNota);
+    Keluar findByNoNota(final String noNota);
 
 }

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import domainapp.modules.inventory.dom.so.Pengeluaran;
+import domainapp.modules.inventory.dom.so.Keluar;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
@@ -21,7 +21,7 @@ public class ModuleInventory implements ModuleWithFixtures {
         return new FixtureScript() {
             @Override
             protected void execute(ExecutionContext executionContext) {
-                repositoryService.removeAll(Pengeluaran.class);
+                repositoryService.removeAll(Keluar.class);
             }
         };
     }

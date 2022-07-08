@@ -5,13 +5,13 @@ import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
-import domainapp.modules.inventory.dom.so.MenuPengeluaran;
-import domainapp.modules.inventory.dom.so.Pengeluaran;
+import domainapp.modules.inventory.dom.so.MenuKeluar;
+import domainapp.modules.inventory.dom.so.Keluar;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum SimpleObject_persona
-implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Pengeluaran> {
+implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Keluar> {
 
     FOO("Foo"),
     BAR("Bar"),
@@ -32,13 +32,13 @@ implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Peng
     }
 
     @Override
-    public Pengeluaran findUsing(final ServiceRegistry serviceRegistry) {
-        MenuPengeluaran simpleObjects = serviceRegistry.lookupService(MenuPengeluaran.class).orElse(null);
+    public Keluar findUsing(final ServiceRegistry serviceRegistry) {
+        MenuKeluar simpleObjects = serviceRegistry.lookupService(MenuKeluar.class).orElse(null);
         return simpleObjects.findByNameExact(name);
     }
 
     public static class PersistAll
-    extends PersonaEnumPersistAll<SimpleObject_persona, Pengeluaran> {
+    extends PersonaEnumPersistAll<SimpleObject_persona, Keluar> {
 
         public PersistAll() {
             super(SimpleObject_persona.class);

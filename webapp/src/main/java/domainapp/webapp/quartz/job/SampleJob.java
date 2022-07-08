@@ -12,8 +12,8 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.stereotype.Component;
 
-import domainapp.modules.inventory.dom.so.MenuPengeluaran;
-import domainapp.modules.inventory.dom.so.Pengeluaran;
+import domainapp.modules.inventory.dom.so.MenuKeluar;
+import domainapp.modules.inventory.dom.so.Keluar;
 
 import org.apache.isis.applib.services.iactnlayer.InteractionContext;
 import org.apache.isis.applib.services.iactnlayer.InteractionService;
@@ -30,17 +30,17 @@ public class SampleJob implements Job {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-    private final MenuPengeluaran simpleObjects;
+    private final MenuKeluar simpleObjects;
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        final List<Pengeluaran> all = all();
+        final List<Keluar> all = all();
         log.info("{} objects in the database", all.size());
     }
 
-    List<Pengeluaran> all() {
+    List<Keluar> all() {
         return call("sven", simpleObjects::listAll)
-                .orElse(Collections.<Pengeluaran>emptyList());
+                .orElse(Collections.<Keluar>emptyList());
     }
 
     private <T> Optional<T> call(

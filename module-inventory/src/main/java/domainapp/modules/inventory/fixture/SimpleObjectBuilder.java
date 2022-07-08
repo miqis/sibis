@@ -4,20 +4,20 @@ import javax.inject.Inject;
 
 import org.apache.isis.testing.fixtures.applib.personas.BuilderScriptWithResult;
 
-import domainapp.modules.inventory.dom.so.MenuPengeluaran;
-import domainapp.modules.inventory.dom.so.Pengeluaran;
+import domainapp.modules.inventory.dom.so.MenuKeluar;
+import domainapp.modules.inventory.dom.so.Keluar;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
-public class SimpleObjectBuilder extends BuilderScriptWithResult<Pengeluaran> {
+public class SimpleObjectBuilder extends BuilderScriptWithResult<Keluar> {
 
     @Getter @Setter
     private String name;
 
     @Override
-    protected Pengeluaran buildResult(final ExecutionContext ec) {
+    protected Keluar buildResult(final ExecutionContext ec) {
 
         checkParam("name", ec, String.class);
 
@@ -26,7 +26,7 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<Pengeluaran> {
 
     // -- DEPENDENCIES
 
-    @Inject MenuPengeluaran simpleObjects;
+    @Inject MenuKeluar simpleObjects;
 
     
 }

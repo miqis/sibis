@@ -9,12 +9,12 @@ import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
-@Property(maxLength = Name.MAX_LEN)
-@Parameter(maxLength = Name.MAX_LEN)
-@ParameterLayout(named = "Name")
+@Property(maxLength = Nama.MAX_LEN)
+@Parameter(maxLength = Nama.MAX_LEN)
+@ParameterLayout(named = "Nama")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Name {
+public @interface Nama {
 
     int MAX_LEN = 40;
 }

@@ -20,7 +20,7 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 
-import domainapp.modules.inventory.types.Name;
+import domainapp.modules.inventory.types.Nama;
 import domainapp.modules.inventory.types.Notes;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
@@ -44,19 +44,19 @@ import lombok.val;
 )
 @javax.persistence.NamedQueries({
         @javax.persistence.NamedQuery(
-                name = Pengeluaran.NAMED_QUERY__FIND_BY_NAME_LIKE,
+                name = Keluar.NAMED_QUERY__FIND_BY_NAME_LIKE,
                 query = "SELECT so " +
-                        "FROM Pengeluaran so " +
-                        "WHERE so.noNota LIKE :noMota"
+                        "FROM Keluar so " +
+                        "WHERE so.noNota LIKE :noNota"
         )
 })
 @javax.persistence.EntityListeners(IsisEntityListener.class)
-@DomainObject(logicalTypeName = "inventory.pembelian", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "inventaris.keluar", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Pengeluaran implements Comparable<Pengeluaran> {
+public class Keluar implements Comparable<Keluar> {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Pembelian.findByNameLike";
 
@@ -73,8 +73,8 @@ public class Pengeluaran implements Comparable<Pengeluaran> {
 
     
     // constructor
-    public static Pengeluaran withName(String name) {
-        val simpleObject = new Pengeluaran();
+    public static Keluar withName(String name) {
+        val simpleObject = new Keluar();
         simpleObject.setNoNota(name);
         return simpleObject;
     }
@@ -86,8 +86,8 @@ public class Pengeluaran implements Comparable<Pengeluaran> {
 
 
     @Title
-    @Name
-    @javax.persistence.Column(length = Name.MAX_LEN, nullable = false)
+    @Nama
+    @javax.persistence.Column(length = Nama.MAX_LEN, nullable = false)
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "name", sequence = "1")
     private String noNota;
@@ -102,8 +102,8 @@ public class Pengeluaran implements Comparable<Pengeluaran> {
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
-    public Pengeluaran updateName(
-            @Name final String name) {
+    public Keluar updateName(
+            @Nama final String name) {
         setNoNota(name);
         return this;
     }
@@ -132,11 +132,11 @@ public class Pengeluaran implements Comparable<Pengeluaran> {
 
 
 
-    private final static Comparator<Pengeluaran> comparator =
-            Comparator.comparing(Pengeluaran::getNoNota);
+    private final static Comparator<Keluar> comparator =
+            Comparator.comparing(Keluar::getNoNota);
 
     @Override
-    public int compareTo(final Pengeluaran other) {
+    public int compareTo(final Keluar other) {
         return comparator.compare(this, other);
     }
 
