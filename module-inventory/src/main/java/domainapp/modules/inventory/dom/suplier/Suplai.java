@@ -56,7 +56,7 @@ import lombok.val;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Suplier implements Comparable<Suplier> {
+public class Suplai implements Comparable<Suplai> {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Pembelian.findByNameLike";
 
@@ -73,8 +73,8 @@ public class Suplier implements Comparable<Suplier> {
 
     
     // constructor
-    public static Suplier withName(String name) {
-        val simpleObject = new Suplier();
+    public static Suplai withName(String name) {
+        val simpleObject = new Suplai();
         simpleObject.setNama(name);
         return simpleObject;
     }
@@ -98,7 +98,7 @@ public class Suplier implements Comparable<Suplier> {
     @javax.persistence.Column(length = Alamat.MAX_LEN, nullable = false)
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "name", sequence = "1")
-    private String alamat;
+    private String alamat = "";
 
     
     @Notes
@@ -111,7 +111,7 @@ public class Suplier implements Comparable<Suplier> {
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
-    public Suplier updateNama(
+    public Suplai updateNama(
             @Nama final String name) {
         setNama(name);
         return this;
@@ -141,11 +141,11 @@ public class Suplier implements Comparable<Suplier> {
 
 
 
-    private final static Comparator<Suplier> comparator =
-            Comparator.comparing(Suplier::getNama);
+    private final static Comparator<Suplai> comparator =
+            Comparator.comparing(Suplai::getNama);
 
     @Override
-    public int compareTo(final Suplier other) {
+    public int compareTo(final Suplai other) {
         return comparator.compare(this, other);
     }
 

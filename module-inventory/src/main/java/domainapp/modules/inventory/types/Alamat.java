@@ -16,5 +16,5 @@ import org.apache.isis.applib.annotation.Property;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Alamat {
 
-    int MAX_LEN = 40;
+    int MAX_LEN = 50;
 }
