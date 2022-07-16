@@ -56,7 +56,7 @@ import lombok.val;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Suplai implements Comparable<Suplai> {
+public class Suplier implements Comparable<Suplier> {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Pembelian.findByNameLike";
 
@@ -73,8 +73,8 @@ public class Suplai implements Comparable<Suplai> {
 
     
     // constructor
-    public static Suplai withName(String name) {
-        val simpleObject = new Suplai();
+    public static Suplier withName(String name) {
+        val simpleObject = new Suplier();
         simpleObject.setNama(name);
         return simpleObject;
     }
@@ -111,7 +111,7 @@ public class Suplai implements Comparable<Suplai> {
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
-    public Suplai updateNama(
+    public Suplier updateNama(
             @Nama final String name) {
         setNama(name);
         return this;
@@ -141,11 +141,11 @@ public class Suplai implements Comparable<Suplai> {
 
 
 
-    private final static Comparator<Suplai> comparator =
-            Comparator.comparing(Suplai::getNama);
+    private final static Comparator<Suplier> comparator =
+            Comparator.comparing(Suplier::getNama);
 
     @Override
-    public int compareTo(final Suplai other) {
+    public int compareTo(final Suplier other) {
         return comparator.compare(this, other);
     }
 

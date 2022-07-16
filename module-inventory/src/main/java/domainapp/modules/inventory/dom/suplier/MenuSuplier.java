@@ -33,18 +33,18 @@ import domainapp.modules.inventory.types.Nama;
 		)
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
-public class MenuSuplai {
+public class MenuSuplier {
 
     final RepositoryService repositoryService;
     final JpaSupportService jpaSupportService;
-    final SuplaiRepository suplaiRepository;
+    final SuplierRepository suplierRepository;
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
-    public Suplai baru(
+    public Suplier baru(
             @Nama final String name) {
-        return repositoryService.persist(Suplai.withName(name));
+        return repositoryService.persist(Suplier.withName(name));
     }
 
 //
@@ -76,8 +76,8 @@ public class MenuSuplai {
 
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<Suplai> listAll() {
-        return suplaiRepository.findAll();
+    public List<Suplier> listAll() {
+        return suplierRepository.findAll();
     }
 
 
