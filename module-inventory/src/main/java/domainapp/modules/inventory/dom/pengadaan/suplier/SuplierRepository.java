@@ -1,4 +1,4 @@
-package domainapp.modules.inventory.dom.suplier;
+package domainapp.modules.inventory.dom.pengadaan.suplier;
 
 import java.util.List;
 

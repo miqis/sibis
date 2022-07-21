@@ -34,7 +34,6 @@ import lombok.ToString;
 import lombok.val;
 
 
-// MasukBarang =) Masuk, urut, Suplier, BarangSuplier, ^Barang 
 @javax.persistence.Entity
 @javax.persistence.Table(
     schema="inventaris",
@@ -104,7 +103,6 @@ public class MasukBarang implements Comparable<MasukBarang> {
     @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
     public MasukBarang updateName(
             @Nama final String name) {
-        setNoNota(name);
         return this;
     }
     public String default0UpdateName() {

@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import domainapp.modules.inventory.dom.so.MenuKeluar;
+import domainapp.modules.inventory.dom.pengadaan.MenuBiaya;
 import domainapp.modules.inventory.dom.so.Keluar;
 
 import org.apache.isis.applib.services.iactnlayer.InteractionContext;
@@ -26,7 +26,7 @@ class CustomController {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-    private final MenuKeluar simpleObjects;
+    private final MenuBiaya simpleObjects;
 
     @GetMapping("/custom/simpleObjects")
     List<Keluar> all() {

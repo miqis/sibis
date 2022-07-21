@@ -1,4 +1,4 @@
-package domainapp.modules.inventory.dom.so;
+package domainapp.modules.inventory.dom.barang;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
@@ -71,6 +71,7 @@ public class Barang implements Comparable<Barang> {
     private long version;
 
     
+    
     // constructor
     public static Barang withName(String name) {
         val simpleObject = new Barang();
@@ -91,6 +92,14 @@ public class Barang implements Comparable<Barang> {
     @PropertyLayout(fieldSetId = "name", sequence = "1")
     private String nama;
 
+    @Title
+    @Nama
+    @javax.persistence.Column( nullable = false)
+    @Getter @Setter @ToString.Include
+    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    private String nama;
+
+    
     @Notes
     @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
     @Getter @Setter

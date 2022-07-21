@@ -5,7 +5,7 @@ import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
-import domainapp.modules.inventory.dom.so.MenuKeluar;
+import domainapp.modules.inventory.dom.pengadaan.MenuBiaya;
 import domainapp.modules.inventory.dom.so.Keluar;
 import lombok.AllArgsConstructor;
 
@@ -33,7 +33,7 @@ implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Kelu
 
     @Override
     public Keluar findUsing(final ServiceRegistry serviceRegistry) {
-        MenuKeluar simpleObjects = serviceRegistry.lookupService(MenuKeluar.class).orElse(null);
+        MenuBiaya simpleObjects = serviceRegistry.lookupService(MenuBiaya.class).orElse(null);
         return simpleObjects.findByNameExact(name);
     }
 

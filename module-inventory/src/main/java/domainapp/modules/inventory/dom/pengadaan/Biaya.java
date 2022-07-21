@@ -1,4 +1,4 @@
-package domainapp.modules.inventory.dom.so;
+package domainapp.modules.inventory.dom.pengadaan;
 
 import java.util.Comparator;
 
@@ -20,6 +20,7 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 
+import domainapp.modules.inventory.dom.barang.Barang;
 import domainapp.modules.inventory.types.Nama;
 import domainapp.modules.inventory.types.Notes;
 
@@ -34,7 +35,7 @@ import lombok.ToString;
 import lombok.val;
 
 
-// Masuk =) suplier, nota, ^pengeluaranTotal, ongkir, Project, Subsidiaries
+// Biaya =) suplier, nota, ^pengeluaranTotal, ongkir, Project, Subsidiaries
 @javax.persistence.Entity
 @javax.persistence.Table(
     schema="inventaris",
@@ -56,7 +57,7 @@ import lombok.val;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class Masuk implements Comparable<Masuk> {
+public class Biaya implements Comparable<Biaya> {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Pembelian.findByNameLike";
 
@@ -73,8 +74,8 @@ public class Masuk implements Comparable<Masuk> {
 
     
     // constructor
-    public static Masuk withName(String name) {
-        val simpleObject = new Masuk();
+    public static Biaya withName(String name) {
+        val simpleObject = new Biaya();
         simpleObject.setNoNota(name);
         return simpleObject;
     }
@@ -92,6 +93,11 @@ public class Masuk implements Comparable<Masuk> {
     @PropertyLayout(fieldSetId = "name", sequence = "1")
     private String noNota;
 
+    @Getter @Setter @ToString.Include
+    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    private Suplier suplier;
+    
+
     @Notes
     @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
     @Getter @Setter
@@ -102,7 +108,7 @@ public class Masuk implements Comparable<Masuk> {
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
-    public Masuk updateName(
+    public Biaya updateName(
             @Nama final String name) {
         setNoNota(name);
         return this;
@@ -132,11 +138,11 @@ public class Masuk implements Comparable<Masuk> {
 
 
 
-    private final static Comparator<Masuk> comparator =
-            Comparator.comparing(Masuk::getNoNota);
+    private final static Comparator<Biaya> comparator =
+            Comparator.comparing(Biaya::getNoNota);
 
     @Override
-    public int compareTo(final Masuk other) {
+    public int compareTo(final Biaya other) {
         return comparator.compare(this, other);
     }
 

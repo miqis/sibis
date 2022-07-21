@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import org.apache.isis.testing.fixtures.applib.personas.BuilderScriptWithResult;
 
-import domainapp.modules.inventory.dom.so.MenuKeluar;
+import domainapp.modules.inventory.dom.pengadaan.MenuBiaya;
 import domainapp.modules.inventory.dom.so.Keluar;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<Keluar> {
 
     // -- DEPENDENCIES
 
-    @Inject MenuKeluar simpleObjects;
+    @Inject MenuBiaya simpleObjects;
 
     
 }

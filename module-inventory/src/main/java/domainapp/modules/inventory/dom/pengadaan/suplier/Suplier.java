@@ -1,4 +1,4 @@
-package domainapp.modules.inventory.dom.suplier;
+package domainapp.modules.inventory.dom.pengadaan.suplier;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;

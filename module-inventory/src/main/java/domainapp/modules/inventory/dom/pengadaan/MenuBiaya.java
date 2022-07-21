@@ -1,4 +1,4 @@
-package domainapp.modules.inventory.dom.so;
+package domainapp.modules.inventory.dom.pengadaan;
 
 import java.util.List;
 
@@ -20,6 +20,8 @@ import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
+import domainapp.modules.inventory.dom.so.Keluar;
+import domainapp.modules.inventory.dom.so.KeluarRepository;
 import domainapp.modules.inventory.types.Nama;
 
 @DomainService(
@@ -33,7 +35,7 @@ import domainapp.modules.inventory.types.Nama;
 		)
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
-public class MenuKeluar {
+public class MenuBiaya {
 
     final RepositoryService repositoryService;
     final JpaSupportService jpaSupportService;
