@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.apache.isis.starters</groupId>
+    <groupId>miq.system.incode.sibus</groupId>
     <artifactId>sibus-jpa</artifactId>
     <version>1.0.0</version>
 

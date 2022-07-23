@@ -78,7 +78,7 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
         val biVal = new BiayaBarang();
         biVal.setBiaya(biaya);
         
-        return simpleObject;
+        return biVal;
     }
 
     @Inject @javax.persistence.Transient RepositoryService repositoryService;
@@ -111,16 +111,7 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
     private String notes;
 
 
-    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @ActionLayout(associateWith = "noNota", promptStyle = PromptStyle.INLINE)
-    public BiayaBarang updateName(
-            @Nama final String name) {
-        setNoNota(name);
-        return this;
-    }
-    public String default0UpdateName() {
-        return getNoNota();
-    }
+
     public String validate0UpdateName(String newName) {
         for (char prohibitedCharacter : "&%$!".toCharArray()) {
             if( newName.contains(""+prohibitedCharacter)) {
@@ -144,7 +135,7 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
 
 
     private final static Comparator<BiayaBarang> comparator =
-            Comparator.comparing(BiayaBarang::getNoNota);
+            Comparator.comparing(BiayaBarang::getBiaya).thenComparing(BiayaBarang::getBarang);
 
     @Override
     public int compareTo(final BiayaBarang other) {

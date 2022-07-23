@@ -50,14 +50,14 @@ public class MenuBiaya {
     }
 
 
-    @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
-    @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
-    public List<Keluar> findByNameLike(
-            @Nama final String name) {
-        return repositoryService.allMatches(
-                Query.named(Keluar.class, Keluar.NAMED_QUERY__FIND_BY_NAME_LIKE)
-                     .withParameter("noNota", "%" + name + "%"));
-    }
+//    @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
+//    @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
+//    public List<Keluar> findByNameLike(
+//            @Nama final String name) {
+//        return repositoryService.allMatches(
+//                Query.named(Keluar.class, Keluar.NAMED_QUERY__FIND_BY_NAME_LIKE)
+//                     .withParameter("noNota", "%" + name + "%"));
+//    }
 
 
     @Action(semantics = SemanticsOf.SAFE)

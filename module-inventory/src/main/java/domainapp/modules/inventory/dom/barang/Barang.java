@@ -85,12 +85,7 @@ public class Barang implements Comparable<Barang> {
 
 
 
-    @Title
-    @Nama
-    @javax.persistence.Column(length = Nama.MAX_LEN, nullable = false)
-    @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
-    private String nama;
+
 
     @Title
     @Nama

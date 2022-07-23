@@ -1,5 +1,8 @@
 package domainapp.modules.inventory.dom.pengadaan;
 
+import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
+import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
+
 import java.util.Comparator;
 
 import javax.inject.Inject;
@@ -20,13 +23,9 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 
-import domainapp.modules.inventory.dom.barang.Barang;
+import domainapp.modules.inventory.dom.pengadaan.suplier.Suplier;
 import domainapp.modules.inventory.types.Nama;
 import domainapp.modules.inventory.types.Notes;
-
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
-import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

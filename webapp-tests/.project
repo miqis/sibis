@@ -4,6 +4,7 @@
   <comment>Integ tests for entire app. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
     <project>miq.system-webapp</project>
+    <project>sibus-jpa-module-inventory</project>
     <project>simpleapp-jpa-module-simple</project>
   </projects>
   <buildSpec>

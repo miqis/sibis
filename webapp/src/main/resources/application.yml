@@ -41,20 +41,20 @@ isis:
   viewer:
     wicket:
       application:
-        about: Simple App
-        brand-logo-header: images/apache-isis/logo-48x48.png
+        about: SIBis
+        brand-logo-header: images/miq/logo-48x48.png
         css: css/application.css
         favicon-url: images/favicon.png
         js: scripts/application.js
         menubars-layout-xml: menubars.layout.xml
-        name: Simple App
+        name: Sistem Informasi bisnis
         # https://stackoverflow.com/a/38983935/56880
         version: @project.version@
 
       credit:
-        - url:  http://isis.apache.org
+        - url:  http://miqsys.duckdns.org
           image: images/apache-isis/logo-48x48.png
-          name: Apache Isis
+          name: incode base aplikation
 
       bookmarked-pages:
         show-chooser: true
