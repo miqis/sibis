@@ -12,6 +12,7 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
@@ -40,7 +41,7 @@ import lombok.val;
 @javax.persistence.Table(
     schema="inventaris",
     uniqueConstraints = {
-        @javax.persistence.UniqueConstraint(name = "masuk__name__UNQ", columnNames = {"NAME"})
+        @javax.persistence.UniqueConstraint(name = "biayabarang__name__UNQ", columnNames = {"NAME"})
     }
 )
 //@javax.persistence.NamedQueries({
@@ -74,9 +75,9 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
 
     
     // constructor
-    public static BiayaBarang withName(Biaya biaya ) {
+    public static BiayaBarang withName(String biaya ) {
         val biVal = new BiayaBarang();
-        biVal.setBiaya(biaya);
+     //   biVal.setBiaya(biaya);
         
         return biVal;
     }
@@ -87,19 +88,17 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
 
 
 
-    @Title
-    @Nama
-    @javax.persistence.Column(length = Nama.MAX_LEN, nullable = false)
-    @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    @Property
+   // @javax.persistence.JoinColumn( nullable = false)
+    @Getter @Setter 
+    @PropertyLayout(fieldSetId = "utama", sequence = "1")
     private Biaya biaya;
 
     
-    @Title
-    @Nama
-    @javax.persistence.Column( nullable = false)
-    @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "name", sequence = "2")
+    @Property
+   // @javax.persistence.Column( nullable = false)
+    @Getter @Setter 
+    @PropertyLayout(fieldSetId = "utama", sequence = "2")
     private Barang  barang;
 
     // barangSuplier
@@ -107,11 +106,11 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
     @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "name", sequence = "2")
+    @PropertyLayout(fieldSetId = "utama", sequence = "3")
     private String notes;
 
 
-
+    @Programmatic
     public String validate0UpdateName(String newName) {
         for (char prohibitedCharacter : "&%$!".toCharArray()) {
             if( newName.contains(""+prohibitedCharacter)) {
@@ -135,7 +134,8 @@ public class BiayaBarang implements Comparable<BiayaBarang> {
 
 
     private final static Comparator<BiayaBarang> comparator =
-            Comparator.comparing(BiayaBarang::getBiaya).thenComparing(BiayaBarang::getBarang);
+    		Comparator.comparing(BiayaBarang::getVersion);
+            //Comparator.comparing(BiayaBarang::getBiaya);//.thenComparing(BiayaBarang::getBarang);
 
     @Override
     public int compareTo(final BiayaBarang other) {

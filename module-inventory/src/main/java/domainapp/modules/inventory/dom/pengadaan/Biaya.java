@@ -39,7 +39,7 @@ import lombok.val;
 @javax.persistence.Table(
     schema="inventaris",
     uniqueConstraints = {
-        @javax.persistence.UniqueConstraint(name = "masuk__name__UNQ", columnNames = {"NAME"})
+        @javax.persistence.UniqueConstraint(name = "biaya__name__UNQ", columnNames = {"NAME"})
     }
 )
 //@javax.persistence.NamedQueries({
@@ -47,11 +47,11 @@ import lombok.val;
 //                name = Masuk.NAMED_QUERY__FIND_BY_NAME_LIKE,
 //                query = "SELECT so " +
 //                        "FROM Pengeluaran so " +
-//                        "WHERE so.noNota LIKE :noMota"
+//                        "WHERE so.noNota LIKE :noNota"
 //        )
 //})
 @javax.persistence.EntityListeners(IsisEntityListener.class)
-@DomainObject(logicalTypeName = "inventaris.masuk", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "inventaris.biaya", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
@@ -89,11 +89,11 @@ public class Biaya implements Comparable<Biaya> {
     @Nama
     @javax.persistence.Column(length = Nama.MAX_LEN, nullable = false)
     @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    @PropertyLayout(fieldSetId = "utama", sequence = "1")
     private String noNota;
 
     @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "name", sequence = "1")
+    @PropertyLayout(fieldSetId = "utama", sequence = "1")
     private Suplier suplier;
     
 
@@ -101,7 +101,7 @@ public class Biaya implements Comparable<Biaya> {
     @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
     @Getter @Setter
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
-    @PropertyLayout(fieldSetId = "name", sequence = "2")
+    @PropertyLayout(fieldSetId = "utama", sequence = "2")
     private String notes;
 
 

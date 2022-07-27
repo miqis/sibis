@@ -38,7 +38,7 @@ import lombok.val;
 @javax.persistence.Table(
     schema="inventaris",
     uniqueConstraints = {
-        @javax.persistence.UniqueConstraint(name = "barang__name__UNQ", columnNames = {"NAME"})
+        @javax.persistence.UniqueConstraint(name = "barang__name__UNQ", columnNames = {"nama"})
     }
 )
 //@javax.persistence.NamedQueries({
