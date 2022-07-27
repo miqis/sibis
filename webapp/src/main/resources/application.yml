@@ -75,6 +75,26 @@ isis:
         non-persisted-objects-strategy: persist
         multiple-execution-strategy: execute
 
+# schema auto creation etc. ...
+  persistence:
+    schema:
+       autoCreateSchemas: isisExtensionsSecman,isisExtCommandLog,isisExtExecutionLog
+
+  extensions:
+    secman:
+      seed:
+        admin:
+          user-name: "sven"
+          password: "pass"
+          role-name: "isis-ext-secman-admin"
+          namespace-permissions:
+            sticky: "isis"
+            additional: "demo"
+        regular-user:
+          role-name: "isis-ext-secman-user"
+      permissionsEvaluationPolicy: ALLOW_BEATS_VETO
+
+
 eclipselink:
   # if enabled, then must be run with JVM arg:
   # -javaagent:lib/spring-instrument-5.3.8.jar
