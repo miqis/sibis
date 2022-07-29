@@ -121,26 +121,6 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
         
-        		<!-- security manager) -->
-
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-integration</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-encryption-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-shiro-realm</artifactId>
-		</dependency>
-
-		<!-- JPA specific -->
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-persistence-jpa</artifactId>
-		</dependency>
     </dependencies>
 
     <profiles>
@@ -163,7 +143,7 @@
         </profile>
 
         <profile>
-            <id>jdbc-postgresql</id>
+            <id>!jdbc-postgresql</id>
             <activation>
                 <property>
                     <name>spring.profiles.active</name>

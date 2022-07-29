@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.apache.isis.app</groupId>
-        <artifactId>miq-isis-app-starter-parent</artifactId>
-        <version>2.0.0-M7</version>
-        <relativePath/>
-    </parent>
+	<parent>
+		<groupId>org.apache.isis.app</groupId>
+		<artifactId>miq-isis-app-starter-parent</artifactId>
+		<version>2.0.0-M7</version>
+		<relativePath />
+	</parent>
 
-    <groupId>miq.system.incode.sibus</groupId>
-    <artifactId>sibus-jpa</artifactId>
-    <version>1.0.0</version>
+	<groupId>miq.system.incode.sibus</groupId>
+	<artifactId>sibus-jpa</artifactId>
+	<version>1.0.0</version>
 
-    <name>SimpleApp (JPA) - Parent</name>
+	<name>SimpleApp (JPA) - Parent</name>
 
-    <packaging>pom</packaging>
+	<packaging>pom</packaging>
 
-    <properties>
-        <isis.version></isis.version>
-        <java.version>11</java.version>
-        <archunit.version>0.14.1</archunit.version>
-    </properties>
+	<properties>
+		<isis.version></isis.version>
+		<java.version>11</java.version>
+		<archunit.version>0.14.1</archunit.version>
+	</properties>
 
-    <dependencyManagement>
-        <dependencies>
+	<dependencyManagement>
+		<dependencies>
 
-            <!-- template 
+			<!-- template 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jpa-module-simple</artifactId>
@@ -41,92 +40,150 @@
                 <type>test-jar</type>
             </dependency>
              -->
-            
-                <!-- this project's own modules -->
 
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>simpleapp-jpa-module-simple</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-     
-            
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>sibus-jpa-module-inventory</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+			<!-- this project's own modules -->
 
-            
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>miq.system-webapp</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>miq.system-webapp-tests</artifactId>
-                <version>${project.version}</version>
-                <scope>test</scope>
-                <type>test-jar</type>
-            </dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>simpleapp-jpa-module-simple</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
 
-        </dependencies>
-    </dependencyManagement>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>sibus-jpa-module-inventory</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 
-    <modules>
-<!--  penentuan nbama folder module
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>miq.system-webapp</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>miq.system-webapp-tests</artifactId>
+				<version>${project.version}</version>
+				<scope>test</scope>
+				<type>test-jar</type>
+			</dependency>
+
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- EXTENSIONS -->
+
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-asciidoc-metamodel</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-asciidoc-persistence-jdo</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-asciidoc-persistence-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-markdown-metamodel</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-markdown-persistence-jdo</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-markdown-persistence-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.valuetypes</groupId>
+			<artifactId>isis-valuetypes-sse-applib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.extensions</groupId>
+			<artifactId>isis-extensions-exceldownload-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.extensions</groupId>
+			<artifactId>isis-extensions-secman-integration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.extensions</groupId>
+			<artifactId>isis-extensions-secman-encryption-spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.extensions</groupId>
+			<artifactId>isis-extensions-secman-persistence-jdo</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.extensions</groupId>
+			<artifactId>isis-extensions-secman-persistence-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.isis.extensions</groupId>
+			<artifactId>isis-extensions-secman-shiro-realm</artifactId>
+		</dependency>
+
+
+	</dependencies>
+
+	<modules>
+		<!--  penentuan nbama folder module
 		template -
         <module>module-simple</module>
         <module>module-simple-tests</module>
         -->
-        
-        <module>module-simple</module>
-        <module>module-inventory</module>
-        <module>webapp</module>
-        <module>webapp-tests</module>
-    </modules>
 
-    <profiles>
-        <profile>
-            <id>staging</id>
-            <activation>
-                <property>
-                    <name>!skip.staging</name>
-                </property>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>staging</id>
-                    <url>https://repository.apache.org/content/groups/staging/</url>
-                </repository>
-            </repositories>
-        </profile>
-        <profile>
-            <id>nightly</id>
-            <activation>
-                <property>
-                    <name>!skip.nightly</name>
-                </property>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>nightly-builds</id>
-                    <url>https://nexus.incode.work/repository/nightly-builds/</url>
-                </repository>
-            </repositories>
-        </profile>
-        
-        
+		<module>module-simple</module>
+		<module>module-inventory</module>
+		<module>webapp</module>
+		<module>webapp-tests</module>
+	</modules>
+
+	<profiles>
+		<profile>
+			<id>staging</id>
+			<activation>
+				<property>
+					<name>!skip.staging</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>staging</id>
+					<url>https://repository.apache.org/content/groups/staging/</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>nightly</id>
+			<activation>
+				<property>
+					<name>!skip.nightly</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>nightly-builds</id>
+					<url>https://nexus.incode.work/repository/nightly-builds/</url>
+				</repository>
+			</repositories>
+		</profile>
+
+
 		<profile>
 			<id>module-ext-secman</id>
 			<activation>
@@ -140,6 +197,6 @@
 		</profile>
 
 
-    </profiles>
+	</profiles>
 
 </project>
