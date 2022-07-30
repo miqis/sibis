@@ -14,7 +14,7 @@ import org.apache.isis.applib.annotation.Nature;
 
 @DomainObject(
         nature = Nature.VIEW_MODEL,
-        logicalTypeName = "simple.HomePageViewModel"
+        logicalTypeName = "miq.incode.HomePageViewModel"
         )
 @HomePage
 @DomainObjectLayout()

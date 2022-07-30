@@ -15,6 +15,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 import org.apache.isis.extensions.secman.integration.IsisModuleExtSecmanIntegration;
+import org.apache.isis.extensions.secman.jpa.IsisModuleExtSecmanPersistenceJpa;
+import org.apache.isis.extensions.secman.jpa.user.dom.ApplicationUserRepository;
+import org.apache.isis.extensions.secman.jpa.util.RegexReplacer;
+import org.apache.isis.extensions.secman.applib.role.dom.ApplicationRoleRepository;
 import org.apache.isis.extensions.secman.encryption.spring.IsisModuleExtSecmanEncryptionSpring;
 
 import domainapp.webapp.application.ApplicationModule;
@@ -27,7 +31,11 @@ import domainapp.webapp.quartz.QuartzModule;
 		// Security Manager Extension (secman)
 		IsisModuleExtSecmanIntegration.class, 
 		IsisModuleExtSecmanEncryptionSpring.class,
+		IsisModuleExtSecmanPersistenceJpa.class,
+//		IsisModuleExtCommandLogPersistenceJpa.class,
 
+		
+		
 		IsisModuleCoreRuntimeServices.class, 
 		IsisModuleSecurityShiro.class, 
 		IsisModulePersistenceJpaEclipselink.class,

@@ -87,9 +87,10 @@ isis:
           user-name: "sven"
           password: "pass"
           role-name: "isis-ext-secman-admin"
+          # "isis-ext-secman-user"
           namespace-permissions:
             sticky: "isis"
-            additional: "demo"
+            additional: "miq"
         regular-user:
           role-name: "isis-ext-secman-user"
       permissionsEvaluationPolicy: ALLOW_BEATS_VETO

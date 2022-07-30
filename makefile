@@ -12,21 +12,24 @@ notest:
 clean:
 	 mvn -o clean -T 1.5C 
 
+net.clean:
+	 mvn -o clean -T 1.5C 
+
 	 
-all.net: clean install.net  spring.net
+net.all: net.clean net.install  net.spring
 
 
-install.net: 
+net.install: 
 	mvn dependency:resolve-plugins dependency:go-offline
 
 	
-spring.net:
+net.spring:
 	mvn dependency:resolve-plugins dependency:go-offline -pl webapp   spring-boot:run
 
 purge:
 	rm -rf  ~/.m2/repository/miq/
 
-purge.net:
+net.purge:
 	mvn dependency:purge-local-repository
 
 eclipse:
