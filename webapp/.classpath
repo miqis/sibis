@@ -277,6 +277,6 @@
 	<classpathentry kind="var" path="M2_REPO/com/zaxxer/HikariCP-java7/2.4.13/HikariCP-java7-2.4.13.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" sourcepath="M2_REPO/org/projectlombok/lombok/1.18.22/lombok-1.18.22-sources.jar"/>
 	<classpathentry kind="src" path="/simpleapp-jpa-module-simple"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/module-inventory"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sibus-jpa-module-inventory"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

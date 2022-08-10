@@ -312,8 +312,8 @@
 	<classpathentry kind="var" path="M2_REPO/com/github/mifmif/generex/1.0.2/generex-1.0.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" sourcepath="M2_REPO/org/projectlombok/lombok/1.18.22/lombok-1.18.22-sources.jar"/>
-	<classpathentry kind="src" path="/simpleapp-jpa-module-simple"/>
 	<classpathentry kind="src" path="/miq.system-webapp"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/module-inventory"/>
+	<classpathentry kind="src" path="/simpleapp-jpa-module-simple"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sibus-jpa-module-inventory"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
