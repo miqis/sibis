@@ -90,7 +90,7 @@ isis:
           # "isis-ext-secman-user"
           namespace-permissions:
             sticky:  ["isis" , "miq"]
-            additional: ["incode", "simpleapp","simple","org"]
+            additional: ["incode", "inventaris","sibis","org"]
         regular-user:
           role-name: "isis-ext-secman-user"
       permissionsEvaluationPolicy: ALLOW_BEATS_VETO

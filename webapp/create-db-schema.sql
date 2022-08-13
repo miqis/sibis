@@ -26,7 +26,7 @@ ALTER TABLE inventaris.BARANGSUPLIER ADD CONSTRAINT barangSuplier__name__UNQ UNI
 ALTER TABLE inventaris.SUPLIER ADD CONSTRAINT suplier__name__UNQ UNIQUE (NAME)
 ALTER TABLE inventaris.BIAYABARANG ADD CONSTRAINT biayabarang__name__UNQ UNIQUE (NAME)
 ALTER TABLE inventaris.BIAYA ADD CONSTRAINT biaya__name__UNQ UNIQUE (NAME)
-ALTER TABLE inventaris.SUBSIDIARIES ADD CONSTRAINT subsidiaries__name__UNQ UNIQUE (NAME)
+ALTER TABLE inventaris.SUBSIDIARIES ADD CONSTRAINT subsidiaries__nama__UNQ UNIQUE (NAMA)
 ALTER TABLE isisExtensionsSecman.ApplicationPermission ADD CONSTRAINT FK_ApplicationPermission_roleId FOREIGN KEY (roleId) REFERENCES isisExtensionsSecman.ApplicationRole (ID)
 ALTER TABLE isisExtensionsSecman.ApplicationTenancy ADD CONSTRAINT FK_ApplicationTenancy_parentPath FOREIGN KEY (parentPath) REFERENCES isisExtensionsSecman.ApplicationTenancy (PATH)
 ALTER TABLE inventaris.BIAYABARANG ADD CONSTRAINT FK_BIAYABARANG_BIAYA_id FOREIGN KEY (BIAYA_id) REFERENCES inventaris.BIAYA (id)
