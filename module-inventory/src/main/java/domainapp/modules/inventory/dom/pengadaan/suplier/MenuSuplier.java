@@ -20,6 +20,7 @@ import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
+import domainapp.modules.inventory.types.Alamat;
 import domainapp.modules.inventory.types.Nama;
 
 @DomainService(
@@ -43,7 +44,7 @@ public class MenuSuplier {
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public Suplier baru(
-            @Nama final String name) {
+            @Nama final String name, @Alamat final String alamat) {
         return repositoryService.persist(Suplier.withName(name));
     }
 

@@ -89,8 +89,8 @@ isis:
           role-name: "isis-ext-secman-admin"
           # "isis-ext-secman-user"
           namespace-permissions:
-            sticky: "isis"
-            additional: "miq"
+            sticky:  ["isis" , "miq"]
+            additional: ["incode", "simpleapp","simple","org"]
         regular-user:
           role-name: "isis-ext-secman-user"
       permissionsEvaluationPolicy: ALLOW_BEATS_VETO

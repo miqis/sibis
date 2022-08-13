@@ -52,7 +52,7 @@ import lombok.val;
 //})
 @javax.persistence.EntityListeners(IsisEntityListener.class)
 @DomainObject(logicalTypeName = "inventaris.suplier", entityChangePublishing = Publishing.ENABLED)
-@DomainObjectLayout()
+@DomainObjectLayout(cssClassFa = "fa-building")
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
