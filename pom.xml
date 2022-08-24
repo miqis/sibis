@@ -126,15 +126,27 @@
 			<artifactId>isis-extensions-secman-shiro-realm</artifactId>
 		</dependency>
 		
-		<!-- database  -->
-		<dependency>
+        
+		<!-- database 	postgresql version 13	-->
+        <dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+		</dependency>
+    
+    
+		<!-- database 	postgresql version 10	-->
+<!--     
+        <dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.6</version>
 			<scope>runtime</scope>
 		</dependency>
-
+    
+     -->
 	</dependencies>
 
+    
 	<modules>
 		<!--  penentuan nama folder module
 		template -
