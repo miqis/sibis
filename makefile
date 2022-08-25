@@ -49,3 +49,6 @@ git.add : clean
 git.undo :
 	git restore .
 
+git.credential :
+	git config credential.helper  cache
+
