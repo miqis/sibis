@@ -2,5 +2,6 @@
 ----------------------------------= database baru install  =-----------------------------------
 psql > CREATE USER "sibis" WITH PASSWORD 'masterkey';
 psql > create database sibis;
+psql > GRANT ALL PRIVILEGES ON DATABASE sibis TO sibis;
 
 
