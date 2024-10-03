@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.apache.isis.app</groupId>
-		<artifactId>miq-isis-app-starter-parent</artifactId>
-		<version>2.0.0-M7</version>
-		<relativePath />
+        <groupId>org.apache.causeway.app</groupId>
+        <artifactId>causeway-app-starter-parent</artifactId>
+        <version>3.1.0</version>
+        <relativePath/>
 	</parent>
 
 	<groupId>miq.system.incode.sibus</groupId>
@@ -45,7 +45,7 @@
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>simpleapp-jpa-module-simple</artifactId>
+				<artifactId>sibus-jdo-module-simple</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -82,49 +82,6 @@
 		</dependency>
 
 
-		<!-- EXTENSIONS -->
-
-		<dependency>
-			<groupId>org.apache.isis.valuetypes</groupId>
-			<artifactId>isis-valuetypes-asciidoc-metamodel</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.isis.valuetypes</groupId>
-			<artifactId>isis-valuetypes-asciidoc-persistence-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.valuetypes</groupId>
-			<artifactId>isis-valuetypes-markdown-metamodel</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.valuetypes</groupId>
-			<artifactId>isis-valuetypes-markdown-persistence-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.valuetypes</groupId>
-			<artifactId>isis-valuetypes-sse-applib</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-exceldownload-ui</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-integration</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-encryption-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-persistence-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-secman-shiro-realm</artifactId>
-		</dependency>
 		
         
 		<!-- database 	postgresql version 13	-->
@@ -185,7 +142,7 @@
 			<repositories>
 				<repository>
 					<id>nightly-builds</id>
-					<url>https://nexus.incode.work/repository/nightly-builds/</url>
+					<url>https://raw.githubusercontent.com/miqis/miq.mvn.cache/main/incode/3.10/</url>
 				</repository>
 			</repositories>
 		</profile>

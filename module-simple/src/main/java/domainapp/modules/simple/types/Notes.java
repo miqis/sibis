@@ -5,13 +5,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.apache.isis.applib.annotation.Editing;
-import org.apache.isis.applib.annotation.Parameter;
-import org.apache.isis.applib.annotation.ParameterLayout;
-import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.applib.annotation.PropertyLayout;
-import org.apache.isis.applib.annotation.Where;
+import javax.jdo.annotations.Column;
 
+import org.apache.causeway.applib.annotation.Editing;
+import org.apache.causeway.applib.annotation.Parameter;
+import org.apache.causeway.applib.annotation.ParameterLayout;
+import org.apache.causeway.applib.annotation.Property;
+import org.apache.causeway.applib.annotation.PropertyLayout;
+import org.apache.causeway.applib.annotation.Where;
+
+@Column(length = Notes.MAX_LEN, allowsNull = "true")
 @Property(editing = Editing.ENABLED, maxLength = Notes.MAX_LEN)
 @PropertyLayout(named = "Notes", multiLine = 10, hidden = Where.ALL_TABLES)
 @Parameter(maxLength = Notes.MAX_LEN)

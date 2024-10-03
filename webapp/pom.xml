@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -12,11 +13,16 @@
     <name>Miq System - Webapp</name>
 
     <description>
-    	Assembles and runs both the Wicket viewer and the Restfulobjects viewer
-    	in a single webapp configured to run using the JPA/EclipseLink object store.
+        Assembles and runs the Wicket viewer, the Restfulobjects viewer and the GraphQL viewer
+        in a single webapp configured to run using the JDO/DataNucleus object store.
     </description>
 
     <packaging>jar</packaging>
+
+    <properties>
+        <!-- https://stackoverflow.com/questions/38983934/cannot-get-maven-project-version-property-in-a-spring-application-with-value/38983935#38983935 -->
+        <resource.delimiter>^</resource.delimiter>
+    </properties>
 
     <build>
         <resources>
@@ -47,8 +53,28 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-info</id>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                        <configuration>
+                            <additionalProperties>
+                                <java.version>${java.version}</java.version>
+                                <description>${project.description}</description>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>
+                </executions>
                 <configuration>
                     <classifier>exec</classifier>
+                    <requiresUnpack>
+                        <dependency>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctorj</artifactId>
+                        </dependency>
+                    </requiresUnpack>
                 </configuration>
             </plugin>
         </plugins>
@@ -56,48 +82,122 @@
 
     <dependencies>
         <!-- miq module -->
-
         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>sibus-jdo-module-simple</artifactId>
+        </dependency>
+
+                <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>sibus-jpa-module-inventory</artifactId>
         </dependency>
-
+ 
+        <!-- causeway -->
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>simpleapp-jpa-module-simple</artifactId>
-        </dependency>
-
-
-        <!-- isis -->
-        <dependency>
-            <groupId>org.apache.isis.mavendeps</groupId>
-            <artifactId>isis-mavendeps-webapp</artifactId>
+            <groupId>org.apache.causeway.mavendeps</groupId>
+            <artifactId>causeway-mavendeps-webapp</artifactId>
             <type>pom</type>
         </dependency>
-
         <dependency>
-            <groupId>org.apache.isis.security</groupId>
-            <artifactId>isis-security-shiro</artifactId>
+            <groupId>org.apache.causeway.viewer</groupId>
+            <artifactId>causeway-viewer-wicket-viewer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.causeway.viewer</groupId>
+            <artifactId>causeway-viewer-restfulobjects-jaxrsresteasy</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.persistence</groupId>
-            <artifactId>isis-persistence-jpa-eclipselink</artifactId>
+            <groupId>org.apache.causeway.persistence</groupId>
+            <artifactId>causeway-persistence-jdo-datanucleus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.viewer</groupId>
+            <artifactId>causeway-viewer-wicket-applib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-h2console-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-flyway-impl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-layoutloaders-github</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.valuetypes</groupId>
+            <artifactId>causeway-valuetypes-asciidoc-metamodel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.causeway.valuetypes</groupId>
+            <artifactId>causeway-valuetypes-asciidoc-ui-wkt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-tabular-excel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-fullcalendar-wicket-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-pdfjs-wicket-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-secman-encryption-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-secman-persistence-jdo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-sessionlog-persistence-jdo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-audittrail-persistence-jdo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-commandlog-persistence-jdo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-executionlog-persistence-jdo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-executionoutbox-persistence-jdo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.viewer</groupId>
+            <artifactId>causeway-viewer-graphql-viewer</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator-autoconfigure</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-h2console-ui</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-flyway-impl</artifactId>
         </dependency>
 
         <dependency>
@@ -120,7 +220,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-        
+
+        <dependency>
+            <groupId>com.github.gavlyukovskiy</groupId>
+            <artifactId>datasource-proxy-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.vertical-blank</groupId>
+            <artifactId>sql-formatter</artifactId>
+        </dependency>
+
     </dependencies>
 
     <profiles>
@@ -143,7 +252,7 @@
         </profile>
 
         <profile>
-            <id>!jdbc-postgresql</id>
+            <id>jdbc-postgresql</id>
             <activation>
                 <property>
                     <name>spring.profiles.active</name>
@@ -153,8 +262,8 @@
             <dependencies>
                 <dependency>
                     <groupId>org.postgresql</groupId>
-		    		<artifactId>postgresql</artifactId>
-					<!-- <version>42.2.12</version> ... version already managed -->
+                    <artifactId>postgresql</artifactId>
+                    <!-- <version>42.2.12</version> ... version already managed -->
                 </dependency>
             </dependencies>
         </profile>
@@ -173,7 +282,7 @@
                         <artifactId>jib-maven-plugin</artifactId>
                         <configuration>
                             <from>
-                                <image>adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.10_9</image>
+                                <image>eclipse-temurin:21.0.2_13-jdk-alpine</image>
                             </from>
                             <container>
                                 <jvmFlags>
@@ -185,7 +294,7 @@
                                 </ports>
                             </container>
                             <to>
-                                <image>docker.io/apacheisis/simpleapp</image>
+                                <image>docker.io/apache/causeway-app-simpleapp</image>
                                 <tags>
                                     <tag>${env.REVISION}</tag>
                                 </tags>
@@ -200,5 +309,4 @@
             </build>
         </profile>
     </profiles>
-
 </project>

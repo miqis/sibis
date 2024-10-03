@@ -4,14 +4,16 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>miq.system.incode.sibus</groupId>
-        <artifactId>sibus-jpa</artifactId>
-        <version>1.0.0</version>
-    </parent>
 
-    <artifactId>simpleapp-jpa-module-simple</artifactId>
-    <name>SimpleApp (JPA) - Simple Module</name>
+	<parent>
+		<groupId>miq.system.incode.sibus</groupId>
+		<artifactId>sibus-jpa</artifactId>
+		<version>1.0.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+    <artifactId>sibus-jdo-module-simple</artifactId>
+    <name>sibus (JDO) - Simple Module</name>
 
     <build>
         <resources>
@@ -33,21 +35,36 @@
 
     <dependencies>
 
-        <!-- ISIS API -->
+        <!-- CAUSEWAY API -->
 
         <dependency>
-            <groupId>org.apache.isis.core</groupId>
-            <artifactId>isis-applib</artifactId>
+            <groupId>org.apache.causeway.core</groupId>
+            <artifactId>causeway-applib</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.persistence</groupId>
-            <artifactId>isis-persistence-jpa-eclipselink</artifactId>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fakedata-applib</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-fixtures-applib</artifactId>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-fullcalendar-applib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-pdfjs-applib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.persistence</groupId>
+            <artifactId>causeway-persistence-jdo-datanucleus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fixtures-applib</artifactId>
         </dependency>
 
         <!-- IDE support (optional) -->

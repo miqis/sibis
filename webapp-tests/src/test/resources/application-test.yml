@@ -1,4 +1,9 @@
-isis:
+causeway:
   persistence:
     schema:
       auto-create-schemas: "simple"
+
+datanucleus:
+  schema:
+    generate-database:
+      mode: "create"

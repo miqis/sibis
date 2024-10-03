@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>miq.system.incode.sibus</groupId>
         <artifactId>sibus-jpa</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>miq.system-webapp-tests</artifactId>
-    <name> Miq System (JPA) - Webapp (tests)</name>
+
+    <artifactId>Incode-jdo-webapp-tests</artifactId>
+    <name>Miq System (JDO) - Webapp (tests)</name>
 
     <description>
         Integ tests for entire app.
@@ -43,9 +43,20 @@
         <!-- TESTING -->
 
         <dependency>
-            <groupId>org.apache.isis.mavendeps</groupId>
-            <artifactId>isis-mavendeps-integtests</artifactId>
-            <type>pom</type>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-integtestsupport-applib</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fakedata-applib</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fixtures-applib</artifactId>
             <scope>test</scope>
         </dependency>
 

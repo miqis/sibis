@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>sibus-jpa-module-inventory</artifactId>
-	<name>sibus (JPA) - Module Inventory </name>
+	<name>sibus  (JDO) - Module Inventory </name>
 
 	<build>
 		<resources>
@@ -31,32 +31,44 @@
 	</build>
 
 	<dependencies>
+     <!-- CAUSEWAY API -->
 
-		<!-- ISIS API -->
+        <dependency>
+            <groupId>org.apache.causeway.core</groupId>
+            <artifactId>causeway-applib</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.apache.isis.core</groupId>
-			<artifactId>isis-applib</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fakedata-applib</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.apache.isis.persistence</groupId>
-			<artifactId>isis-persistence-jpa-eclipselink</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-fullcalendar-applib</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.apache.isis.testing</groupId>
-			<artifactId>isis-testing-fixtures-applib</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-pdfjs-applib</artifactId>
+        </dependency>
 
-		<!-- IDE support (optional) -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.causeway.persistence</groupId>
+            <artifactId>causeway-persistence-jdo-datanucleus</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fixtures-applib</artifactId>
+        </dependency>
 
+        <!-- IDE support (optional) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
 
 	</dependencies>
 

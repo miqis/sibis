@@ -5,20 +5,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.Callable;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import domainapp.modules.inventory.dom.pengadaan.MenuBiaya;
-import domainapp.modules.inventory.dom.so.Keluar;
-
-import org.apache.isis.applib.services.iactnlayer.InteractionContext;
-import org.apache.isis.applib.services.iactnlayer.InteractionService;
-import org.apache.isis.applib.services.user.UserMemento;
-import org.apache.isis.applib.services.xactn.TransactionalProcessor;
+import org.apache.causeway.applib.services.iactnlayer.InteractionContext;
+import org.apache.causeway.applib.services.iactnlayer.InteractionService;
+import org.apache.causeway.applib.services.user.UserMemento;
+import org.apache.causeway.applib.services.xactn.TransactionalProcessor;
 
 import lombok.RequiredArgsConstructor;
+
+import domainapp.modules.simple.dom.so.SimpleObject;
+import domainapp.modules.simple.dom.so.SimpleObjects;
 
 @RestController
 @RequiredArgsConstructor(onConstructor_ = {@Inject})
@@ -26,12 +26,12 @@ class CustomController {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-    private final MenuBiaya simpleObjects;
+    private final SimpleObjects simpleObjects;
 
     @GetMapping("/custom/simpleObjects")
-    List<Keluar> all() {
+    List<SimpleObject> all() {
         return call("sven", simpleObjects::listAll)
-                .orElse(Collections.<Keluar>emptyList());
+                .orElse(Collections.<SimpleObject>emptyList());
     }
 
     private <T> Optional<T> call(
@@ -39,9 +39,11 @@ class CustomController {
             final Callable<T> callable) {
 
         return interactionService.call(
-                InteractionContext.ofUserWithSystemDefaults(UserMemento.ofName(username)),
-                () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(callable))
-                .optionalElseFail(); // re-throws exception that has occurred, if any
+                    InteractionContext.ofUserWithSystemDefaults(UserMemento.ofName(username)),
+                    () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(callable)
+                )
+                .ifFailureFail()
+                .getValue();
     }
 
 }
