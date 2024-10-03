@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>miq.system.incode.sibus</groupId>
-        <artifactId>sibus-jpa</artifactId>
+        <artifactId>sibus-jdo</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -36,7 +36,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>miq.system-webapp</artifactId>
+            <artifactId>sibus-webapp</artifactId>
             <scope>test</scope>
         </dependency>
 

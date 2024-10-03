@@ -4,12 +4,12 @@
 
 	<parent>
 		<groupId>miq.system.incode.sibus</groupId>
-		<artifactId>sibus-jpa</artifactId>
+		<artifactId>sibus-jdo</artifactId>
 		<version>1.0.0</version>
 		<relativePath>..</relativePath>
 	</parent>
 
-	<artifactId>sibus-jpa-module-inventory</artifactId>
+	<artifactId>sibus-jdo-module-inventory</artifactId>
 	<name>sibus  (JDO) - Module Inventory </name>
 
 	<build>

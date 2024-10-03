@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>miq.system.incode.sibus</groupId>
-	<artifactId>sibus-jpa</artifactId>
+	<artifactId>sibus-jdo</artifactId>
 	<version>1.0.0</version>
 
-	<name>SimpleApp (JPA) - Parent</name>
+	<name>SimpleApp (JDO) - Parent</name>
 
 	<packaging>pom</packaging>
 
@@ -52,14 +52,14 @@
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>sibus-jpa-module-inventory</artifactId>
+				<artifactId>sibus-jdo-module-inventory</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>miq.system-webapp</artifactId>
+				<artifactId>sibus-webapp</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

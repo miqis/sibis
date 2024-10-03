@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>miq.system.incode.sibus</groupId>
-        <artifactId>sibus-jpa</artifactId>
+        <artifactId>sibus-jdo</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>miq.system-webapp</artifactId>
+    <artifactId>sibus-webapp</artifactId>
     <name>Miq System - Webapp</name>
 
     <description>
@@ -89,7 +89,7 @@
 
                 <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>sibus-jpa-module-inventory</artifactId>
+            <artifactId>sibus-jdo-module-inventory</artifactId>
         </dependency>
  
         <!-- causeway -->
